@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package oglesby;
 
 import java.io.RandomAccessFile;
@@ -23,10 +18,10 @@ protected double suggestedMaximumPurchasePrice;
 
 public abstract boolean find(String alastname, String title);
 public abstract void read (RandomAccessFile fileName);
-//public abstract void print ();
+public abstract void print ();
 public abstract void save ();
 public abstract void write (RandomAccessFile fileName);
-//public abstract void performDeletion ();
+public abstract void performDeletion ();
 
     public Painting(String first, String last, String title, String clas, Date dow, double h,
             double w, String med, String sub, double max )
@@ -227,46 +222,44 @@ public abstract void write (RandomAccessFile fileName);
         double tempmax=new Double(UserInterface.getString());
         suggestedMaximumPurchasePrice=tempmax;
     }
-
-
-  //Desc: Deletes a painting
-  public void delete ()
+    //delete a painting
+     public void delete ()
   {
-        try
-        {
-            char c;	// character entered by user
-            String  input1;        // buffer for line of characters
-            String  input2;
-            boolean done = false;// tells when user is done entering information
-            boolean  found = false;// tells when an investment has been found
-            char choice;   // for storing user's response
+    try
+    {
+	char	      c;			    // character entered by user
+	String        input1;                        // buffer for line of characters
+	String        input2;
+        boolean	      done = false;	            // tells when user is done entering information
+	boolean       found = false;	            // tells when an investment has been found
+	char          choice;           	    // for storing user's response
 
-            while (!found && !done)
-            {
-              System.out.println ("Please enter the number of the artist's last name to be deleted (12 digits): ");
+	while (!found && !done)
+	{
+	  System.out.println ("Please enter the number of the Artist's last name for the painting to be deleted ");
 
-              input1 =  "hi"; //UserInterface.getString();
+          input1 = UserInterface.getString();
 
-              System.out.println ("Please enter the number of the title of work to be deleted (12 digits): ");
+          System.out.println ("Please enter the number of the Artist's last name for the painting to be deleted ");
 
-              input2 =  "hi"; //UserInterface.getString();
+          input2 = UserInterface.getString();
 
-              found = find (input1, input2);
+	  found = find (input1, input2);
 
-              if (!found)
-              {
-                System.out.println ("Either "+input1.toString () + " or " + input2.toString() +
-                                    " was not found.");
-                System.out.println ("Would you like to enter another artist lastname and title of work?");
+	  if (!found)
+	  {
+	    System.out.println (artistLastName + " and " + titleOfWork
+				" was not found.");
+            System.out.println ("Would you like to enter another " + getClass ().getName ()+ " number?");
 
-               choice = 'n'; //UserInterface.getChar();
+            choice = UserInterface.getChar();
 
-                if (choice == 'n')
-                {
-                  done = true;
-                }
-              }
-            }
+	    if (choice == 'n')
+	    {
+	      done = true;
+	    }
+	  }
+	}
 
 	if (!found)
 	{
@@ -275,7 +268,7 @@ public abstract void write (RandomAccessFile fileName);
 
 	performDeletion ();
 	System.out.println ("\nThe record has been deleted.");
-	//UserInterface.pressEnter();
+	UserInterface.pressEnter();
     }
     catch (Exception e)
     {
@@ -284,34 +277,4 @@ public abstract void write (RandomAccessFile fileName);
     }
 
   }  // delete
-
-  //Desc: adds a new painting
-  public void add ()
-
-  {
-    try
-    {
-	int c;	// character entered by user
-
-	//obtainNewData ();
-	save ();
-	System.out.println ("\nThe following record was inserted\n");
-	print ();
-	//UserInterface.pressEnter();
-
-    }
-    catch (Exception e)
-    {
-	System.out.println ("***** Error: Asset.add () *****");
-	System.out.println ("\t" + e);
-    }
-
-  }  // add
-
-
-
 }
-
-
-
-
