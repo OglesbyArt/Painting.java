@@ -1,218 +1,225 @@
-Painting.java
-=============
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+package artpricingsystem;
 
-package oglesbyimplementation;
+import java.io.RandomAccessFile;
+import java.util.Date;
 
-abstract class Painting
-{
+abstract class Painting {
 
-	private String artistFirstName;
-	private String artistLastName;
-	private String titleOfWork;
-	private String classification;
-	//private date dateOfWork;
-	private double height;
-	private double width;
-	private String medium;
-	private String subject;
-	private double suggestedMaximumPurchasePrice;
+protected String artistFirstName;
+protected String artistLastName;
+protected String titleOfWork;
+protected String classification;
+protected Date dateOfWork;
+protected double height;
+protected double width;
+protected String medium;
+protected String subject;
+protected double suggestedMaximumPurchasePrice;
 
-	public Painting(String first, String last, String title, String clas, double h, double w, String med, String sub, double max )
-	{
-		artistFirstName=first;
-		artistLastName=last;
-		titleOfWork=title;
-		classification=clas;
-		height=h;
-		width=w;
-		medium=med;
-		subject=sub;
-		suggestedMaximumPurchasePrice=max;
-	}
+public abstract boolean find(String alastname, String title);
+public abstract void read (RandomAccessFile fileName);
+public abstract void print ();
+public abstract void save ();
+public abstract void write (RandomAccessFile fileName);
+public abstract void performDeletion ();
 
-	public Painting()
-	{
-	}
-		//Return: The artist’s first name for that painting record
+    public Painting(String first, String last, String title, String clas, Date dow, double h, 
+            double w, String med, String sub, double max )
+    {
+        artistFirstName=first;
+        artistLastName=last;
+        titleOfWork=title;
+        classification=clas;
+        dateOfWork=dow;
+        height=h;
+        width=w;
+        medium=med;
+        subject=sub;
+        suggestedMaximumPurchasePrice=max;
+        
+    }
+
+    public Painting()
+    {
+    }
+        //Return: The artist’s first name for that painting record
     public String getArtistsFirstName()
     {
-			return artistFirstName;
+            return artistFirstName;
     }
 
     //Post: Set artist first name to the string argument
     public void setArtistFirstName(String s)
     {
-		artistFirstName=s;
+        artistFirstName=s;
     }
         //Return: The artist’s first name for that painting record
     public String getArtistsLastName()
     {
-    	    return artistLastName;
+            return artistLastName;
     }
 
     //Post: Set artist last name to the string argument
     public void setArtistsLastName(String s)
     {
-    	artistLastName=s;
+        artistLastName=s;
     }
-   /*     //Return: The date of work for that painting record
-    public date getDateofWork()
-    {
-			return dateOfWork
+    
+    //Return: The date of work for that painting record 
+    
+    public Date getDateofWork() 
+    { 
+        return dateOfWork;
     }
 
     //Post: Set date of work to the datetime argument
-    public void setDateofWork(date d)
+    public void setDateofWork(Date d)
     {
-    	dateOfWork=s
-    }*/
+        dateOfWork=d;
+    }
+    
         //Return: The title of work for that painting record
     public String getTitleofWork()
     {
-    	   return titleOfWork;
+           return titleOfWork;
     }
 
     //Post: The title of work is set to string argument
     public void setTitleofWork(String s)
     {
-    	titleOfWork=s;
+        titleOfWork=s;
     }
 
     //Return: The classification for that painting record
     public String getClassification()
     {
-			return classification;
+            return classification;
     }
 
     //Post: Set classification to the string argument
     public void setClassification(String s)
     {
-    	classification=s;
+        classification=s;
     }
         //Return: The height for that painting record
     public double getHeight()
     {
-			return height;
+            return height;
     }
 
     //Post: Set height to the double argument
     public void setHeight(double d)
     {
-    	height=d;
+        height=d;
     }
         //Return: The width for that painting record
     public double getWidth()
     {
-	return width;
+    return width;
     }
 
     //Post: Set width to the double argument
     public void setWidth(double d)
     {
-    	width=d;
+        width=d;
     }
 
     //Return: The medium for that painting record
     public String getMedium()
     {
-		return medium;
+        return medium;
     }
 
     //Post: Set medium to the string argument
     public void setMedium(String s)
     {
-    	medium=s;
+        medium=s;
     }
         //Return: The subject for that painting record
     public String getSubject()
     {
-		return subject;
+        return subject;
     }
 
     //Post: Set subject to the string argument
     public void setSubject(String s)
     {
-    	subject=s;
+        subject=s;
     }
         //Return: The suggested maximum purchase price for that painting record
     public double getSuggestedMaximumPurchasePrice()
     {
-			return suggestedMaximumPurchasePrice;
+            return suggestedMaximumPurchasePrice;
     }
 
     //Post: Set suggested maximum purchase price to the double argument
     public void setSuggestedMaximumPurchasePrice(double d)
     {
-    	suggestedMaximumPurchasePrice=d;
+        suggestedMaximumPurchasePrice=d;
     }
     public void updateArtistsFirstName()
     {
-        String str="";
         System.out.println("Old Artist First Name:" + artistFirstName);
         System.out.println("Please enter new Artist First Name and press <ENTER>: \n");
-       // UserInterface.getString()
+        artistFirstName=UserInterface.getString();
     }
     public void updateArtistsLastName()
     {
-        String str="";
-        System.out.println("Old Artist First Name:" + artistLastName);
-        System.out.println("Please enter new Artist First Name and press <ENTER>: \n");
+        System.out.println("Old Artist Last Name:" + artistLastName);
+        System.out.println("Please enter new Artist Last Name and press <ENTER>: \n");
+        artistLastName=UserInterface.getString();
     }
     public void updateTitleOfWork()
     {
-        String str="";
-        System.out.println("Old Artist First Name:" + titleOfWork);
-        System.out.println("Please enter new Artist First Name and press <ENTER>: \n");
+        System.out.println("Old Title of Work:" + titleOfWork);
+        System.out.println("Please enter new Title of Work and press <ENTER>: \n");
+        titleOfWork=UserInterface.getString();
     }
     public void updateClassification()
     {
-        String str="";
-        System.out.println("Old Artist First Name:" + classification);
-        System.out.println("Please enter new Artist First Name and press <ENTER>: \n");
+        System.out.println("Old Classification:" + classification);
+        System.out.println("Please enter new Classification and press <ENTER>: \n");
+        classification=UserInterface.getString();
     }
-    public void updatHeight()
+    
+    public void updateDateOfWork()
     {
-        String str="";
-        System.out.println("Old Artist First Name:" + height);
-        System.out.println("Please enter new Artist First Name and press <ENTER>: \n");
+        System.out.println("Old Date of Work:" + dateOfWork);
+        System.out.println("Please enter new Date of Work and press <ENTER>: \n");
+        Date tempDate=new Date(UserInterface.getString());
+        dateOfWork=tempDate;
+    }
+    public void updateHeight()
+    {
+        System.out.println("Old Height:" + height);
+        System.out.println("Please enter new Height and press <ENTER>: \n");
+        double tempheight=new Double(UserInterface.getString());
+        height=tempheight;
     }
     public void updateWidth()
     {
-        String str="";
-        System.out.println("Old Artist First Name:" + width);
-        System.out.println("Please enter new Artist First Name and press <ENTER>: \n");
+        System.out.println("Old Width:" + width);
+        System.out.println("Please enter new Width and press <ENTER>: \n");
+        double tempwidth=new Double(UserInterface.getString());
+        width=tempwidth;
     }
     public void updateMedium()
     {
-        String str="";
-        System.out.println("Old Artist First Name:" + Medium);
-        System.out.println("Please enter new Artist First Name and press <ENTER>: \n");
+        System.out.println("Old Medium:" + medium);
+        System.out.println("Please enter new Medium and press <ENTER>: \n");
+        medium=UserInterface.getString();
     }
     public void updateSubject()
     {
-        String str="";
-        System.out.println("Old Artist First Name:" + subject);
-        System.out.println("Please enter new Artist First Name and press <ENTER>: \n");
+        System.out.println("Old Subject:" + subject);
+        System.out.println("Please enter new Subject and press <ENTER>: \n");
+        subject=UserInterface.getString();
     }
     public void updateSuggestedMaximumPurchasePrice()
     {
-        String str="";
-        System.out.println("Old Artist First Name:" + suggestedMaximumPurchasePrice);
-        System.out.println("Please enter new Artist First Name and press <ENTER>: \n");
-    }
-
-    public abstract boolean find(String alastname, String title);
-    public abstract void read (RandomAccessFile fileName);
-    public abstract void print ();
-    public abstract void save ();
-    public abstract void write (RandomAccessFile fileName);
-    public abstract void performDeletion ();
-
-    public static void main(String[] args)
-    {
+        System.out.println("Old Suggested Max Purchase Price:" + suggestedMaximumPurchasePrice);
+        System.out.println("Please enter new Suggested Max Purchase Price and press <ENTER>: \n");
+        double tempmax=new Double(UserInterface.getString());
+        suggestedMaximumPurchasePrice=tempmax;
     }
 }
