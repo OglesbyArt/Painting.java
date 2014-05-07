@@ -1,4 +1,9 @@
-package artpricingsystem;
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package oglesby;
 
 import java.io.RandomAccessFile;
 import java.util.Date;
@@ -18,12 +23,12 @@ protected double suggestedMaximumPurchasePrice;
 
 public abstract boolean find(String alastname, String title);
 public abstract void read (RandomAccessFile fileName);
-public abstract void print ();
+//public abstract void print ();
 public abstract void save ();
 public abstract void write (RandomAccessFile fileName);
-public abstract void performDeletion ();
+//public abstract void performDeletion ();
 
-    public Painting(String first, String last, String title, String clas, Date dow, double h, 
+    public Painting(String first, String last, String title, String clas, Date dow, double h,
             double w, String med, String sub, double max )
     {
         artistFirstName=first;
@@ -36,7 +41,7 @@ public abstract void performDeletion ();
         medium=med;
         subject=sub;
         suggestedMaximumPurchasePrice=max;
-        
+
     }
 
     public Painting()
@@ -64,11 +69,11 @@ public abstract void performDeletion ();
     {
         artistLastName=s;
     }
-    
-    //Return: The date of work for that painting record 
-    
-    public Date getDateofWork() 
-    { 
+
+    //Return: The date of work for that painting record
+
+    public Date getDateofWork()
+    {
         return dateOfWork;
     }
 
@@ -77,7 +82,7 @@ public abstract void performDeletion ();
     {
         dateOfWork=d;
     }
-    
+
         //Return: The title of work for that painting record
     public String getTitleofWork()
     {
@@ -181,7 +186,7 @@ public abstract void performDeletion ();
         System.out.println("Please enter new Classification and press <ENTER>: \n");
         classification=UserInterface.getString();
     }
-    
+
     public void updateDateOfWork()
     {
         System.out.println("Old Date of Work:" + dateOfWork);
@@ -222,4 +227,91 @@ public abstract void performDeletion ();
         double tempmax=new Double(UserInterface.getString());
         suggestedMaximumPurchasePrice=tempmax;
     }
+
+
+  //Desc: Deletes a painting
+  public void delete ()
+  {
+        try
+        {
+            char c;	// character entered by user
+            String  input1;        // buffer for line of characters
+            String  input2;
+            boolean done = false;// tells when user is done entering information
+            boolean  found = false;// tells when an investment has been found
+            char choice;   // for storing user's response
+
+            while (!found && !done)
+            {
+              System.out.println ("Please enter the number of the artist's last name to be deleted (12 digits): ");
+
+              input1 =  "hi"; //UserInterface.getString();
+
+              System.out.println ("Please enter the number of the title of work to be deleted (12 digits): ");
+
+              input2 =  "hi"; //UserInterface.getString();
+
+              found = find (input1, input2);
+
+              if (!found)
+              {
+                System.out.println ("Either "+input1.toString () + " or " + input2.toString() +
+                                    " was not found.");
+                System.out.println ("Would you like to enter another artist lastname and title of work?");
+
+               choice = 'n'; //UserInterface.getChar();
+
+                if (choice == 'n')
+                {
+                  done = true;
+                }
+              }
+            }
+
+	if (!found)
+	{
+          return;
+	}
+
+	performDeletion ();
+	System.out.println ("\nThe record has been deleted.");
+	//UserInterface.pressEnter();
+    }
+    catch (Exception e)
+    {
+	System.out.println ("***** Error: Asset.delete () *****");
+	System.out.println ("\t" + e);
+    }
+
+  }  // delete
+
+  //Desc: adds a new painting
+  public void add ()
+
+  {
+    try
+    {
+	int c;	// character entered by user
+
+	//obtainNewData ();
+	save ();
+	System.out.println ("\nThe following record was inserted\n");
+	print ();
+	//UserInterface.pressEnter();
+
+    }
+    catch (Exception e)
+    {
+	System.out.println ("***** Error: Asset.add () *****");
+	System.out.println ("\t" + e);
+    }
+
+  }  // add
+
+
+
 }
+
+
+
+
