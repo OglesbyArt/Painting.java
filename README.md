@@ -237,11 +237,11 @@ public abstract void performDeletion ();
 
 	while (!found && !done)
 	{
-	  System.out.println ("Please enter the number of the Artist's last name for the painting to be deleted ");
+	  System.out.println ("Please enter the name of the Artist's last name for the painting to be deleted ");
 
           input1 = UserInterface.getString();
 
-          System.out.println ("Please enter the number of the Artist's last name for the painting to be deleted ");
+          System.out.println ("Please enter the Title of Work for the painting to be deleted ");
 
           input2 = UserInterface.getString();
 
