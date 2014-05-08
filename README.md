@@ -24,7 +24,7 @@ public abstract void write (RandomAccessFile fileName);
 public abstract void performDeletion ();
 
     public Painting(String first, String last, String title, String clas, Date dow, double h,
-            double w, String med, String sub, double max )
+            double w, String med, String sub)// double max )
     {
         artistFirstName=first;
         artistLastName=last;
@@ -35,7 +35,7 @@ public abstract void performDeletion ();
         width=w;
         medium=med;
         subject=sub;
-        suggestedMaximumPurchasePrice=max;
+       // suggestedMaximumPurchasePrice=max;
 
     }
 
