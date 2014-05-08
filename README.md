@@ -268,7 +268,7 @@ public abstract void performDeletion ();
 
 	performDeletion ();
 	System.out.println ("\nThe record has been deleted.");
-	UserInterface.pressEnter();
+	//UserInterface.pressEnter();
     }
     catch (Exception e)
     {
