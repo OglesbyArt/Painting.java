@@ -277,4 +277,29 @@ public abstract void performDeletion ();
     }
 
   }  // delete
+  
+  
+  public void add ()
+  //
+  // adds a new investment/mortgage.
+  //
+  {
+    try
+    {
+	int c;	// character entered by user
+
+	readInRecord(); //not sure if this is the method i want
+	save ();
+	System.out.println ("\nThe following record was inserted\n");
+	print ();
+	//UserInterface.pressEnter();
+
+    }
+    catch (Exception e)
+    {
+	System.out.println ("***** Error: Asset.add () *****");
+	System.out.println ("\t" + e);
+    }
+
+  }  // add
 }
