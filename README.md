@@ -22,6 +22,7 @@ public abstract void print ();
 public abstract void save ();
 public abstract void write (RandomAccessFile fileName);
 public abstract void performDeletion ();
+public abstract void readInRecord();
 
     public Painting(String first, String last, String title, String clas, Date dow, double h,
             double w, String med, String sub)// double max )
@@ -289,7 +290,7 @@ public abstract void performDeletion ();
     {
 	int c;	// character entered by user
 
-	obtainNewData(); //not sure if this is the method i want
+	readInRecord(); //not sure if this is the method i want
 	save ();
 	System.out.println ("\nThe following record was inserted\n");
 	print ();
@@ -303,44 +304,5 @@ public abstract void performDeletion ();
     }
 
   }  // add
-       public void obtainNewData()
-  //
-  // readInvestmentData obtains input data for all fields of an investment record.
-  //
-  {
-    try
-    {
-	char	      c;				// character entered by user
-	String        input;                      	// buffer for line of characters
-	boolean	      valid = false;      		// used to validate length of ID
 
-	while (!valid)
-        {
-	    System.out.println ("Enter artist last name (12 digits): ");
-            artistLastName = UserInterface.getString();
-            valid = (artistLastName.length () <= 12);
-
-            if (!valid)
-		System.out.println ("\n\nThe investment number must be 12 digits long.");
-	 }
-         /*
-	 System.out.println ("Enter investment name: ");
-	 investmentName = UserInterface.getString();
-
-         System.out.println ("Enter expected annual return: ");
-	 input = UserInterface.getString();
-	 Float newFloat = new Float (input);
-	 expectedAnnualReturn = newFloat.floatValue ();
-
-        System.out.println ("Enter today's date (mm/dd/yy):");
-        expectedAnnualReturnUpdated = UserInterface.getString(); */
-
-      }
-      catch (Exception e)
-      {
-	System.out.println ("***** Error: Investment.readInvestmentData () *****");
-	System.out.println ("\t" + e);
-      }
-
-  } 
 }
