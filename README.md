@@ -164,72 +164,114 @@ public abstract void readInRecord();
     {
         suggestedMaximumPurchasePrice=d;
     }*/
-    public void updateArtistsFirstName()
+     public void updateArtistsFirstName()
     {
         System.out.println("Old Artist First Name:" + artistFirstName);
-        System.out.println("Please enter new Artist First Name and press <ENTER>: \n");
+        System.out.println("Please enter new Artist First Name and press <ENTER>: ");
         artistFirstName=UserInterface.getString();
     }
     public void updateArtistsLastName()
     {
         System.out.println("Old Artist Last Name:" + artistLastName);
-        System.out.println("Please enter new Artist Last Name and press <ENTER>: \n");
+        System.out.println("Please enter new Artist Last Name and press <ENTER>: ");
         artistLastName=UserInterface.getString();
     }
     public void updateTitleOfWork()
     {
         System.out.println("Old Title of Work:" + titleOfWork);
-        System.out.println("Please enter new Title of Work and press <ENTER>: \n");
+        System.out.println("Please enter new Title of Work and press <ENTER>: ");
         titleOfWork=UserInterface.getString();
     }
     public void updateClassification()
     {
         System.out.println("Old Classification:" + classification);
-        System.out.println("Please enter new Classification and press <ENTER>: \n");
-        classification=UserInterface.getString();
+        System.out.println("Please enter new Classification (masterpiece, masterwork, or other) and press <ENTER>: ");
+        classification = UserInterface.getString();
+        while (!(classification.equalsIgnoreCase("masterpiece")|classification.equalsIgnoreCase("masterwork")|
+                classification.equalsIgnoreCase("other")))
+        {
+            System.out.println("Classification entered incorrectly. Please enter one of the following mediums: masterpiece, masterwork, or other.");
+            classification=UserInterface.getString();
+        }
     }
-
+    
     public void updateDateOfWork()
     {
-        System.out.println("Old Date of Work:" + dateOfWork);
-        System.out.println("Please enter new Date of Work and press <ENTER>: \n");
-        Date tempDate=new Date(UserInterface.getString());
-        dateOfWork=tempDate;
+        try 
+        {      
+            System.out.println("Old Date of Work:" + dateOfWork);
+            System.out.println("Please enter new Date of Work and press <ENTER>: ");
+            Date tempDate=new Date(UserInterface.getString());
+            dateOfWork=tempDate;
+        }
+        
+        catch (Exception e)
+        {
+           System.out.println("Value entered is not a date value. Please enter a date value: "); 
+           Date tempDate=new Date (UserInterface.getString());
+           dateOfWork=tempDate;
+           return;
+        }
     }
     public void updateHeight()
     {
-        System.out.println("Old Height:" + height);
-        System.out.println("Please enter new Height and press <ENTER>: \n");
-        double tempheight=new Double(UserInterface.getString());
-        height=tempheight;
+        try 
+        {
+            System.out.println("Old Height:" + height);
+            System.out.println("Please enter new Height and press <ENTER>: ");
+            double tempheight=new Double(UserInterface.getString());
+            height=tempheight;
+        }
+        
+        catch (NumberFormatException e)
+        {
+           System.out.println("Value entered is not an double value. Please enter a double value: "); 
+           height=Double.parseDouble(UserInterface.getString());
+           return;
+        }
     }
     public void updateWidth()
     {
-        System.out.println("Old Width:" + width);
-        System.out.println("Please enter new Width and press <ENTER>: \n");
-        double tempwidth=new Double(UserInterface.getString());
-        width=tempwidth;
+        try 
+        {
+            System.out.println("Old Width:" + width);
+            System.out.println("Please enter new Width and press <ENTER>: ");
+            double tempwidth=new Double(UserInterface.getString());
+            width=tempwidth;
+        }
+        
+        catch (NumberFormatException e)
+        {
+           System.out.println("Value entered is not an double value. Please enter a double value: "); 
+           width=Double.parseDouble(UserInterface.getString());
+           return;
+        }        
     }
     public void updateMedium()
     {
+        
         System.out.println("Old Medium:" + medium);
-        System.out.println("Please enter new Medium and press <ENTER>: \n");
-        medium=UserInterface.getString();
+        System.out.println("Enter painting medium (oil, watercolor, or other) and press <ENTER>: ");
+        medium  = UserInterface.getString();
+        while (!(medium.equalsIgnoreCase("oil")|medium.equalsIgnoreCase("watercolor")|
+                medium.equalsIgnoreCase("other")))
+        {
+            System.out.println("Medium entered incorrectly. Please enter one of the following mediums: oil, watercolor, or other.");
+            medium=UserInterface.getString();
+        }
     }
     public void updateSubject()
     {
         System.out.println("Old Subject:" + subject);
-        System.out.println("Please enter new Subject and press <ENTER>: \n");
-        subject=UserInterface.getString();
+        System.out.println("Enter painting subject (portrait, still-life, landscape, or other) and press <ENTER>: ");
+        subject =UserInterface.getString();
+        while (!(subject.equalsIgnoreCase("portrait")|subject.equalsIgnoreCase("still-life")|
+        subject.equalsIgnoreCase("landscape")| subject.equalsIgnoreCase("other")))
+        {
+            System.out.println("Subject entered incorrectly. Please enter one of the following subjects: portrait, still-life, landscape, or other.");
+            subject=UserInterface.getString();
+        }
     }
-/*    public void updateSuggestedMaximumPurchasePrice()
-    {
-        System.out.println("Old Suggested Max Purchase Price:" + suggestedMaximumPurchasePrice);
-        System.out.println("Please enter new Suggested Max Purchase Price and press <ENTER>: \n");
-        double tempmax=new Double(UserInterface.getString());
-        suggestedMaximumPurchasePrice=tempmax;
-    }*/
-
 
   //Desc: Deletes a painting
   public void delete ()
