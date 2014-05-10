@@ -335,7 +335,7 @@ public abstract void readInRecord();
     }
     catch (Exception e)
     {
-	System.out.println ("***** Error: Asset.delete () *****");
+	System.out.println ("***** Error: Painting.delete () *****");
 	System.out.println ("\t" + e);
     }
 
@@ -364,7 +364,7 @@ public abstract void readInRecord();
     }
     catch (Exception e)
     {
-	System.out.println ("***** Error: Asset.add () *****");
+	System.out.println ("***** Error: Painting.add () *****");
 	System.out.println ("\t" + e);
     }
 
