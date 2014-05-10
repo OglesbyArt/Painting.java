@@ -20,7 +20,6 @@ protected double height;
 protected double width;
 protected String medium;
 protected String subject;
-//protected double suggestedMaximumPurchasePrice;
 
 public abstract boolean find(String alastname, String title);
 public abstract void read (RandomAccessFile fileName);
@@ -42,12 +41,20 @@ public abstract void readInRecord();
         width=w;
         medium=med;
         subject=sub;
-        suggestedMaximumPurchasePrice=max;
 
     }
-
+    
     public Painting()
     {
+        artistFirstName="";
+        artistLastName="";
+        titleOfWork="";
+        dateOfWork=new Date();
+        classification="other";
+        height=0;
+        width=0;
+        medium="other";
+        subject="other";
     }
         //Return: The artist’s first name for that painting record
     public String getArtistsFirstName()
@@ -366,9 +373,6 @@ public abstract void readInRecord();
     }
 
   }  // add
-
-
-
 }
 
 
