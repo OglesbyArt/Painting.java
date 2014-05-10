@@ -200,14 +200,14 @@ public abstract void readInRecord();
         try 
         {      
             System.out.println("Old Date of Work:" + dateOfWork);
-            System.out.println("Please enter new Date of Work and press <ENTER>: ");
+            System.out.println("Please enter new Date of Work (mm/dd/yyyy) and press <ENTER>: ");
             Date tempDate=new Date(UserInterface.getString());
             dateOfWork=tempDate;
         }
         
         catch (Exception e)
         {
-           System.out.println("Value entered is not a date value. Please enter a date value: "); 
+           System.out.println("Value entered is not a date value. Please enter a date value (mm/dd/yyyy): "); 
            Date tempDate=new Date (UserInterface.getString());
            dateOfWork=tempDate;
            return;
