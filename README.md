@@ -20,6 +20,7 @@ protected double height;
 protected double width;
 protected String medium;
 protected String subject;
+//protected double suggestedMaximumPurchasePrice;
 
 public abstract boolean find(String alastname, String title);
 public abstract void read (RandomAccessFile fileName);
@@ -43,18 +44,9 @@ public abstract void readInRecord();
         subject=sub;
 
     }
-    
+
     public Painting()
     {
-        artistFirstName="";
-        artistLastName="";
-        titleOfWork="";
-        dateOfWork=new Date();
-        classification="other";
-        height=0;
-        width=0;
-        medium="other";
-        subject="other";
     }
         //Return: The artist’s first name for that painting record
     public String getArtistsFirstName()
@@ -207,14 +199,14 @@ public abstract void readInRecord();
         try 
         {      
             System.out.println("Old Date of Work:" + dateOfWork);
-            System.out.println("Please enter new Date of Work (mm/dd/yyyy) and press <ENTER>: ");
+            System.out.println("Please enter new Date of Work and press <ENTER>: ");
             Date tempDate=new Date(UserInterface.getString());
             dateOfWork=tempDate;
         }
         
         catch (Exception e)
         {
-           System.out.println("Value entered is not a date value. Please enter a date value (mm/dd/yyyy): "); 
+           System.out.println("Value entered is not a date value. Please enter a date value: "); 
            Date tempDate=new Date (UserInterface.getString());
            dateOfWork=tempDate;
            return;
@@ -336,8 +328,10 @@ public abstract void readInRecord();
 
 	performDeletion ();
 	System.out.println ("\nThe record has been deleted.");
+        System.out.println("Press <ENTER> to return to Main Menu");
+        UserInterface.pressEnter();
         return;
-	//UserInterface.pressEnter();
+	
     }
     catch (Exception e)
     {
@@ -363,8 +357,10 @@ public abstract void readInRecord();
 	save ();
 	System.out.println ("\nThe following record was inserted\n");
 	print ();
-	System.out.println("Press <ENTER> to return to Main Menu");
+        System.out.println("Press <ENTER> to return to Main Menu");
         UserInterface.pressEnter();
+	//UserInterface.pressEnter();
+
     }
     catch (Exception e)
     {
@@ -374,7 +370,3 @@ public abstract void readInRecord();
 
   }  // add
 }
-
-
-
-
