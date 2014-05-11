@@ -333,6 +333,8 @@ public abstract void readInRecord();
 	performDeletion ();
 	System.out.println ("\nThe record has been deleted.");
         return;
+        System.out.println("Press <ENTER> to return to Main Menu");
+        UserInterface.pressEnter();
 	//UserInterface.pressEnter();
     }
     catch (Exception e)
@@ -359,6 +361,8 @@ public abstract void readInRecord();
 	save ();
 	System.out.println ("\nThe following record was inserted\n");
 	print ();
+	System.out.println("Press <ENTER> to return to Main Menu");
+        UserInterface.pressEnter();
 	//UserInterface.pressEnter();
 
     }
