@@ -1,7 +1,9 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-
-//package oglesby;
-package artpricingsystem;
+package oglesby;
 
 import java.io.RandomAccessFile;
 import java.util.Date;
@@ -18,6 +20,7 @@ protected double width;
 protected String medium;
 protected String subject;
 
+
 public abstract boolean find(String alastname, String title);
 public abstract void read (RandomAccessFile fileName);
 public abstract void print ();
@@ -27,7 +30,7 @@ public abstract void performDeletion ();
 public abstract void readInRecord();
 
     public Painting(String first, String last, String title, String clas, Date dow, double h,
-            double w, String med, String sub, double max )
+            double w, String med, String sub)
     {
         artistFirstName=first;
         artistLastName=last;
@@ -38,20 +41,12 @@ public abstract void readInRecord();
         width=w;
         medium=med;
         subject=sub;
+        
 
     }
-    
+
     public Painting()
     {
-        artistFirstName="";
-        artistLastName="";
-        titleOfWork="";
-        dateOfWork=new Date();
-        classification="other";
-        height=0;
-        width=0;
-        medium="other";
-        subject="other";
     }
         //Return: The artist’s first name for that painting record
     public String getArtistsFirstName()
@@ -157,110 +152,58 @@ public abstract void readInRecord();
     {
         subject=s;
     }
+        //Return: The suggested maximum purchase price for that painting record
 
-     public void updateArtistsFirstName()
+    public void updateArtistsFirstName()
     {
-        System.out.println("Old Artist First Name:" + artistFirstName);
-        System.out.println("Please enter new Artist First Name and press <ENTER>: ");
+        System.out.println("Old Artist First Name: " + artistFirstName);
+        System.out.println("Please enter new Artist First Name and press <ENTER>: \n");
         artistFirstName=UserInterface.getString();
-        while(artistFirstName.length()>31) 
-        {
-            System.out.println("Artist First Name exceeds 30 characters. Please enter shortened name:");
-            artistFirstName=UserInterface.getString();
-        }          
     }
     public void updateArtistsLastName()
     {
-        System.out.println("Old Artist Last Name:" + artistLastName);
-        System.out.println("Please enter new Artist Last Name and press <ENTER>: ");
+        System.out.println("Old Artist Last Name: " + artistLastName);
+        System.out.println("Please enter new Artist Last Name and press <ENTER>: \n");
         artistLastName=UserInterface.getString();
-        while(artistLastName.length()>31) 
-        {
-            System.out.println("Artist Last Name exceeds 30 characters. Please enter shortened name:");
-            artistLastName=UserInterface.getString();
-        }   
     }
     public void updateTitleOfWork()
     {
-        System.out.println("Old Title of Work:" + titleOfWork);
-        System.out.println("Please enter new Title of Work and press <ENTER>: ");
+        System.out.println("Old Title of Work: " + titleOfWork);
+        System.out.println("Please enter new Title of Work and press <ENTER>: \n");
         titleOfWork=UserInterface.getString();
-        while(titleOfWork.length()>41) 
-        {
-            System.out.println("Artist Last Name exceeds 40 characters. Please enter shortened name:");
-            titleOfWork=UserInterface.getString();
-        } 
     }
     public void updateClassification()
     {
-        System.out.println("Old Classification:" + classification);
-        System.out.println("Please enter new Classification (masterpiece, masterwork, or other) and press <ENTER>: ");
-        classification = UserInterface.getString();
-        while (!(classification.equalsIgnoreCase("masterpiece")|classification.equalsIgnoreCase("masterwork")|
-                classification.equalsIgnoreCase("other")))
-        {
-            System.out.println("Classification entered incorrectly. Please enter one of the following mediums: masterpiece, masterwork, or other.");
-            classification=UserInterface.getString();
-        }
+        System.out.println("Old Classification: " + classification);
+        System.out.println("Please enter new Classification and press <ENTER>: \n");
+        classification=UserInterface.getString();
     }
-    
+
     public void updateDateOfWork()
     {
-        try 
-        {      
-            System.out.println("Old Date of Work:" + dateOfWork);
-            System.out.println("Please enter new Date of Work (mm/dd/yyyy) and press <ENTER>: ");
-            Date tempDate=new Date(UserInterface.getString());
-            dateOfWork=tempDate;
-        }
-        
-        catch (Exception e)
-        {
-           System.out.println("Value entered is not a date value. Please enter a date value (mm/dd/yyyy): "); 
-           Date tempDate=new Date (UserInterface.getString());
-           dateOfWork=tempDate;
-           return;
-        }
+        System.out.println("Old Date of Work: " + dateOfWork);
+        System.out.println("Please enter new Date of Work and press <ENTER>: \n");
+        Date tempDate=new Date(UserInterface.getString());
+        dateOfWork=tempDate;
     }
     public void updateHeight()
     {
-        try 
-        {
-            System.out.println("Old Height:" + height);
-            System.out.println("Please enter new Height and press <ENTER>: ");
-            double tempheight=new Double(UserInterface.getString());
-            height=tempheight;
-        }
-        
-        catch (NumberFormatException e)
-        {
-           System.out.println("Value entered is not an double value. Please enter a double value: "); 
-           height=Double.parseDouble(UserInterface.getString());
-           return;
-        }
+        System.out.println("Old Height: " + height);
+        System.out.println("Please enter new Height and press <ENTER>: \n");
+        double tempheight=new Double(UserInterface.getString());
+        height=tempheight;
     }
     public void updateWidth()
     {
-        try 
-        {
-            System.out.println("Old Width:" + width);
-            System.out.println("Please enter new Width and press <ENTER>: ");
-            double tempwidth=new Double(UserInterface.getString());
-            width=tempwidth;
-        }
-        
-        catch (NumberFormatException e)
-        {
-           System.out.println("Value entered is not an double value. Please enter a double value: "); 
-           width=Double.parseDouble(UserInterface.getString());
-           return;
-        }        
+        System.out.println("Old Width: " + width);
+        System.out.println("Please enter new Width and press <ENTER>: \n");
+        double tempwidth=new Double(UserInterface.getString());
+        width=tempwidth;
     }
     public void updateMedium()
     {
-        
-        System.out.println("Old Medium:" + medium);
-        System.out.println("Enter painting medium (oil, watercolor, or other) and press <ENTER>: ");
+        System.out.println("Old Medium: " + medium);
+        System.out.println("Enter painting medium (oil, watercolor, or other): ");
         medium  = UserInterface.getString();
         while (!(medium.equalsIgnoreCase("oil")|medium.equalsIgnoreCase("watercolor")|
                 medium.equalsIgnoreCase("other")))
@@ -271,8 +214,8 @@ public abstract void readInRecord();
     }
     public void updateSubject()
     {
-        System.out.println("Old Subject:" + subject);
-        System.out.println("Enter painting subject (portrait, still-life, landscape, or other) and press <ENTER>: ");
+        System.out.println("Old Subject: " + subject);
+        System.out.println("Enter painting subject (portrait, still-life, landscape, or other): ");
         subject =UserInterface.getString();
         while (!(subject.equalsIgnoreCase("portrait")|subject.equalsIgnoreCase("still-life")|
         subject.equalsIgnoreCase("landscape")| subject.equalsIgnoreCase("other")))
@@ -282,11 +225,14 @@ public abstract void readInRecord();
         }
     }
 
+
+
   //Desc: Deletes a painting
   public void delete ()
   {
         try
         {
+            char c;	// character entered by user
             String  input1;        // buffer for line of characters
             String  input2;
             boolean done = false;// tells when user is done entering information
@@ -295,11 +241,16 @@ public abstract void readInRecord();
 
             while (!found && !done)
             {
-                  System.out.println ("Please enter the number of the artist's last name to be deleted: ");
+                  System.out.println ("Please enter the number of the artist's last name to be deleted (12 digits): ");
+
                   input1 =  UserInterface.getString();
-                  System.out.println ("Please enter the number of the title of work to be deleted: ");
+
+                  System.out.println ("Please enter the number of the title of work to be deleted (12 digits): ");
+
                   input2 =  UserInterface.getString();
+
                   found = find (input1, input2);
+
                 //  System.out.println(found);
 
                   if (found)
@@ -333,8 +284,6 @@ public abstract void readInRecord();
 	performDeletion ();
 	System.out.println ("\nThe record has been deleted.");
         return;
-        System.out.println("Press <ENTER> to return to Main Menu");
-        UserInterface.pressEnter();
 	//UserInterface.pressEnter();
     }
     catch (Exception e)
@@ -361,8 +310,6 @@ public abstract void readInRecord();
 	save ();
 	System.out.println ("\nThe following record was inserted\n");
 	print ();
-	System.out.println("Press <ENTER> to return to Main Menu");
-        UserInterface.pressEnter();
 	//UserInterface.pressEnter();
 
     }
@@ -373,4 +320,11 @@ public abstract void readInRecord();
     }
 
   }  // add
+
+
+
 }
+
+
+
+
