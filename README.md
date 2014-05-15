@@ -1,10 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-package oglesby;
-
 import java.io.RandomAccessFile;
 import java.util.Date;
 
@@ -241,11 +234,11 @@ public abstract void readInRecord();
 
             while (!found && !done)
             {
-                  System.out.println ("Please enter the number of the artist's last name to be deleted (12 digits): ");
+                  System.out.println ("Please enter the last name of the artist to be deleted: ");
 
                   input1 =  UserInterface.getString();
 
-                  System.out.println ("Please enter the number of the title of work to be deleted (12 digits): ");
+                  System.out.println ("Please enterthe title of work to be deleted: ");
 
                   input2 =  UserInterface.getString();
 
@@ -324,7 +317,3 @@ public abstract void readInRecord();
 
 
 }
-
-
-
-
