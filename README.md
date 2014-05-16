@@ -238,7 +238,7 @@ public abstract void readInRecord();
 
                   input1 =  UserInterface.getString();
 
-                  System.out.println ("Please enterthe title of work to be deleted: ");
+                  System.out.println ("Please enter the title of work to be deleted: ");
 
                   input2 =  UserInterface.getString();
 
