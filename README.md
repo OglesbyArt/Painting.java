@@ -22,6 +22,7 @@ public abstract void write (RandomAccessFile fileName);
 public abstract void performDeletion ();
 public abstract void readInRecord();
 
+    //Desc: Constructor for Painting class
     public Painting(String first, String last, String title, String clas, Date dow, double h,
             double w, String med, String sub)
     {
@@ -37,7 +38,8 @@ public abstract void readInRecord();
         
 
     }
-
+ 
+    //Desc: No argument constructor for painting class
     public Painting()
     {
     }
@@ -145,26 +147,40 @@ public abstract void readInRecord();
     {
         subject=s;
     }
-        //Return: The suggested maximum purchase price for that painting record
 
+    //Desc: Prints the current artist first name and allows the user to update the 
+    //	artist first name field
+    //Post: the artist first name is updated
     public void updateArtistsFirstName()
     {
         System.out.println("Old Artist First Name: " + artistFirstName);
         System.out.println("Please enter new Artist First Name and press <ENTER>: \n");
         artistFirstName=UserInterface.getString();
     }
+    
+    //Desc: Prints the current artist last name and allows the user to update the 
+    //	artist last name field
+    //Post: the artist first last is updated
     public void updateArtistsLastName()
     {
         System.out.println("Old Artist Last Name: " + artistLastName);
         System.out.println("Please enter new Artist Last Name and press <ENTER>: \n");
         artistLastName=UserInterface.getString();
     }
+    
+    //Desc: Prints the current title of work and allows the user to update the 
+    //	title of work field
+    //Post: the title of work is updated
     public void updateTitleOfWork()
     {
         System.out.println("Old Title of Work: " + titleOfWork);
         System.out.println("Please enter new Title of Work and press <ENTER>: \n");
         titleOfWork=UserInterface.getString();
     }
+    
+     //Desc: Prints the current classification and allows the user to update the 
+    //	classification field
+    //Post: the classification is updated
     public void updateClassification()
     {
         System.out.println("Old Classification: " + classification);
@@ -172,6 +188,9 @@ public abstract void readInRecord();
         classification=UserInterface.getString();
     }
 
+    //Desc: Prints the current date of work and allows the user to update the 
+    //	date of work field
+    //Post: the date of work is updated
     public void updateDateOfWork()
     {
         System.out.println("Old Date of Work: " + dateOfWork);
@@ -179,6 +198,10 @@ public abstract void readInRecord();
         Date tempDate=new Date(UserInterface.getString());
         dateOfWork=tempDate;
     }
+    
+    //Desc: Prints the current height and allows the user to update the 
+    //	height field
+    //Post: the height is updated
     public void updateHeight()
     {
         System.out.println("Old Height: " + height);
@@ -186,6 +209,10 @@ public abstract void readInRecord();
         double tempheight=new Double(UserInterface.getString());
         height=tempheight;
     }
+
+    //Desc: Prints the current width and allows the user to update the 
+    //	width field
+    //Post: the width is updated
     public void updateWidth()
     {
         System.out.println("Old Width: " + width);
@@ -193,6 +220,10 @@ public abstract void readInRecord();
         double tempwidth=new Double(UserInterface.getString());
         width=tempwidth;
     }
+    
+    //Desc: Prints the current medium and allows the user to update the 
+    //	medium field
+    //Post: the medium is updated
     public void updateMedium()
     {
         System.out.println("Old Medium: " + medium);
@@ -205,6 +236,10 @@ public abstract void readInRecord();
             medium=UserInterface.getString();
         }
     }
+    
+    //Desc: Prints the current subject and allows the user to update the 
+    //	subject field
+    //Post: the subject is updated
     public void updateSubject()
     {
         System.out.println("Old Subject: " + subject);
@@ -221,6 +256,7 @@ public abstract void readInRecord();
 
 
   //Desc: Deletes a painting
+  //Post: a painting record has been deleted
   public void delete ()
   {
         try
@@ -289,6 +325,7 @@ public abstract void readInRecord();
   }  // delete
 
   //Desc: adds a new painting
+  //Post: a new painting record has been added
  public void add ()
 
   {
